@@ -1,4 +1,4 @@
-export const getRoomtListService = async () => {
+export const getRoomListService = async () => {
     try {
         const url = 'http://localhost:4000/rather/rooms/'
         const resp = await fetch(url)

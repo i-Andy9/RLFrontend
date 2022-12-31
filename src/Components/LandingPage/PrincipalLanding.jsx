@@ -1,16 +1,23 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useContext } from "react";
+import { Outlet } from "react-router-dom";
+import RoomsList from "../Rooms/RoomsList";
 
-const PrincipalLanding = () => {
-    return (
-        <>
-            <div className='min-h-screen' style={{backgroundColor:'#4b4a54', display: 'flex' , flexFlow:'column',height: '100%',}}> 
-                    
-        holaa
-            </div>
-            <Outlet />
-        </>
-    )
-}
 
-export default PrincipalLanding
+import RoomState from "../../Context/Room/RoomState";
+
+const PrincipalLanding = ({ sesion }) => { 
+  return (
+    <>
+      <div
+        className="" 
+      >
+        <RoomState>
+          <RoomsList sesion={sesion} />
+        </RoomState>
+      </div>
+      <Outlet />
+    </>
+  );
+};
+
+export default PrincipalLanding;

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { Component, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Container, Input, Label, Row } from 'reactstrap'
 
-const Login = () => {
+const Login = ({setvalidateSesion}) => {
+    useEffect(() => { 
+        setvalidateSesion(true)
+        return ()=>{
+            setvalidateSesion(false)
+        }
+    }, [Component]);
 
-    
     return (
         <>
             <Container fluid="sm">
