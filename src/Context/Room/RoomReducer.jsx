@@ -6,7 +6,6 @@ export default (state, action) => {
   if (payload !== undefined) {
     switch (type) {
       case GET_ROOMITEM:
-        console.log("reducer1", payload);
         return { ...state, selectedRoom: payload };
       case GET_ROOMSLIST:
         return { ...state, rooms: payload };

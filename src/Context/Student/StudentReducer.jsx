@@ -8,7 +8,6 @@ export default (state, action) => {
             case GET_STUDENTSLIST:
                 return { ...state, students: payload.listStudents }
             case GET_STUDENT:
-                console.log("reducer student", payload)
                 return { ...state, selectedStudent: payload.studentsExist, data: payload }
             case CLEAN_STUDENT:
                 return { ...state, }

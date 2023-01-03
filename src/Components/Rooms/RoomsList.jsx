@@ -22,10 +22,10 @@ const RoomsList = ({ sesion }) => {
     <Container>
       <div className="flex">
         <div
-          className={`col mt-3  text-white text-2xl  col-xs-12 col-sm-12 col-md-12  col-xl-9  `}
+          className={`col mt-3  text-white text-2xl  col-xs-12 col-sm-12 col-md-12  col-xl-10  `}
         >
           <Row>
-            <Col className="col-sm-12 col-md-11 col-xs-6 ">
+            <Col className={`${sesionActivity ? 'col-sm-10 col-md-10 col-xs-6' : 'col-sm-12 col-md-11 col-xs-8'}  `}>
               <h2 className="text-center">
                 Lista de Aulas
               </h2>
@@ -49,7 +49,7 @@ const RoomsList = ({ sesion }) => {
                       scope="col"
                     >Codigo</th>
                     <th
-                      className="col-1"
+                      className="col-2"
                       scope="col"
                     >Opciones</th>
                   </tr>

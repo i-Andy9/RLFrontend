@@ -26,24 +26,22 @@ const StudentItem = () => {
     const [GenderName, setGenderName] = useState('')
     const [familyName, setfamilyName] = useState('')
 
-    useEffect(() => {
-        getStudentList()
-        getRoomsList()
-    }, [])
-
-    useEffect(() => {
-        console.log("cargoo", selectedStudent);
-    }, [selectedStudent])
-
-    useEffect(() => {
-
+    const loadNsetDataInfo = () => {
         setRoomName(rooms.find(room => room.code === dummy.classroom).name)
         setGenderName(GenderOptions.find(g => g.value === dummy.gender).title);
         let familyName = students.find(s => s.rut === dummy.rut)
         setfamilyName(`${familyName.name} ${familyName.lastName}`)
+    }
 
-    }, [rooms, students])
+    useEffect(() => {
+        console.log("cargo", selectedStudent);
+    }, [selectedStudent])
 
+    useEffect(() => {
+        () => getStudentList();
+        () => getRoomsList();
+        loadNsetDataInfo()
+    }, [])
     return (
         <div className="flex">
             <SideAdminMenu />

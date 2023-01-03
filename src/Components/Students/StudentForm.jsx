@@ -43,7 +43,6 @@ const StudentForm = () => {
         setodtStudent({ ...odtStudent, age: value })
         break;
       case 'classroom':
-        console.log(value);
         setodtStudent({ ...odtStudent, classroom: value })
         break;
       case 'gender':

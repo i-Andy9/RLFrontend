@@ -21,7 +21,6 @@ const AdminState = (props) => {
 
     const getAdminsList = async () => {
         const adminList = await getAdminsListService()
-        console.log(adminList)
         dispatch({
             type: 'GET_ADMINS',
             payload: adminList,
@@ -39,14 +38,12 @@ const AdminState = (props) => {
             payload: sesionAdmin,
             type: 'LOGIN_ADMIN'
         })
-        console.log(sesionAdmin.adminSave);
         localStorage.setItem('user', JSON.stringify(sesionAdmin.adminSave))
         navigate("/")
 
     }
     const SignOutAdmin = async () => {
         const sesionAdmin = await LogOutAdminServices(state.selectedAdmin.token, state.adminSave)
-        console.log(sesionAdmin)
         dispatch({
             payload: sesionAdmin,
             type: 'LOGOUT_ADMIN'
@@ -57,9 +54,6 @@ const AdminState = (props) => {
     const getAdmin = () => { }
     const addAdmin = () => { }
     const deleteAdmin = () => { }
-    useEffect(() => {
-        console.log("ADMIN STATE => ", state)
-    }, [state])
 
     return (
         <AdminContext.Provider

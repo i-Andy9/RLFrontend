@@ -1,4 +1,4 @@
-export const LogInAdminServices = async (/* token:string, */body:{}) => {
+export const LogInAdminServices = async (/* token:string, */ body: {}) => {
   try {
     const url = `http://localhost:4000/rather/admin/login`;
     const resp = await fetch(url, {
@@ -11,13 +11,12 @@ export const LogInAdminServices = async (/* token:string, */body:{}) => {
       body: JSON.stringify(body),
     });
     const data = await resp.json();
-    console.log(data);
-    return data
+    return data;
   } catch (error) {
     throw new Error(error.message);
   }
-}; 
-export const LogOutAdminServices = async (token:string,body:{}) => {
+};
+export const LogOutAdminServices = async (token: string, body: {}) => {
   try {
     const url = `http://localhost:4000/rather/admin/loadout`;
     const resp = await fetch(url, {
@@ -29,21 +28,20 @@ export const LogOutAdminServices = async (token:string,body:{}) => {
       method: "POST",
       body: JSON.stringify(body),
     });
-    const data = await resp.json(); 
-    console.log(data);
-    return data
+    const data = await resp.json();
+    return data;
   } catch (error) {
     throw new Error(error.message);
   }
-}; 
+};
 export const getAdminsListService = async () => {
   try {
-      const url = 'http://localhost:4000/rather/admin/'
-      const resp = await fetch(url)
-      const data = await resp.json()
-      const list = await data.adminList
-      return list
+    const url = "http://localhost:4000/rather/admin/";
+    const resp = await fetch(url);
+    const data = await resp.json();
+    const list = await data.adminList;
+    return list;
   } catch (error) {
-      throw new Error(error.message)
+    throw new Error(error.message);
   }
-}
+};

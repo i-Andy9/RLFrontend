@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Container, Input, Label, Row } from "reactstrap";
+import { Col, Container, Input, Label, Row } from "reactstrap";
 import AdminContext from "../../Context/Admin/AdminContext";
 
 const Login = () => {
@@ -11,11 +11,8 @@ const Login = () => {
     getAdminsList,
     SignInAdmin,
   } = useContext(AdminContext);
-  /* "mail": "andre.zapata@asdlkja.cl",
-            "password": "123123" 
-         */
+
   const Login = () => {
-    console.log(fromLoginAdmin);
     SignInAdmin(fromLoginAdmin);
   };
 
@@ -24,14 +21,6 @@ const Login = () => {
     password: "",
   });
 
-  const list = () => {
-    getAdminsList();
-  };
-  const view = () => {
-    console.log(admins);
-    console.log(selectedAdmin);
-    console.log(sesionActivity);
-  };
   const handleUpdateForm = (e) => {
     const { value, id } = e.target;
 
@@ -53,7 +42,7 @@ const Login = () => {
         <Row className=" justify-content-md-center">
           <Col
             className=" card  bg-dark mt-4 text-white"
-            style={{ width: "22rem" }}
+            style={{ maxWidth: "25rem" }}
           >
             <h1 className="text-center mt-3">Login</h1>
             <div className="card-body">
@@ -78,7 +67,7 @@ const Login = () => {
                 />
               </div>
               <hr />
-              <div className="text-center"> 
+              <div className="text-center">
                 <Link
                   href="#!"
                   onClick={() => Login()}
@@ -87,21 +76,6 @@ const Login = () => {
                   Iniciar Sesion{" "}
                 </Link>
               </div>
-              
-              <a
-                href="#!"
-                onClick={() => list()}
-                className="btn mt-4 btn-primary"
-              >
-                list{" "}
-              </a>
-              <a
-                href="#!"
-                onClick={() => view()}
-                className="btn mt-4 btn-primary"
-              >
-                view{" "}
-              </a>
             </div>
           </Col>
         </Row>

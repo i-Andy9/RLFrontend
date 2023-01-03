@@ -4,7 +4,7 @@ export default (state, action) => {
   const { payload, type } = action;
 
   switch (type) {
-    case LOGIN_ADMIN: 
+    case LOGIN_ADMIN:
       return {
         ...state,
         selectedAdmin: payload,
@@ -12,7 +12,6 @@ export default (state, action) => {
         token: payload.adminSave.token,
       };
     case LOGOUT_ADMIN:
-      console.log(payload)
       return {
         ...state,
         selectedAdmin: payload,

@@ -28,7 +28,6 @@ const RoomState = (props) => {
   };
   const getRoom = async (code) => {
     let roomItem = await getRoomService(code)
-    console.log(roomItem.roomExist)
     dispatch({
       type: 'GET_ROOMITEM',
       payload: roomItem,
@@ -55,7 +54,6 @@ const RoomState = (props) => {
   };
   const editRoom = async (data, code, token, opcion) => {
     const editemRoom = await editRoomService(data, code, token)
-    console.log(editemRoom)
     if (editemRoom.code && editemRoom.code === 404) {
       return errorAlert('No se ha encontrado un aula asociado aeste codigo', editemRoom.msg)
     }
@@ -78,7 +76,7 @@ const RoomState = (props) => {
   useEffect(() => {
 
     if (state.selectedRoom) {
-      return console.log("existe");
+      return console.log("existe", state.selectedRoom);
     }
   }, [state.selectedRoom])
   return (

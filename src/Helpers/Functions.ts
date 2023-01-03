@@ -4,7 +4,6 @@ export const codeRoomValidator = (code: string) => {
 
   //validacion de numeros code posit 0
   if (!Number(code.substring(0, 1) && code.substring(0, 1) !== "0")) {
-    console.log(code.substring(0, 1));
     return "";
   }
 

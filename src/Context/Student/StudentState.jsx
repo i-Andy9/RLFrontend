@@ -18,7 +18,7 @@ const StudentState = (props) => {
     }
 
     const [state, dispatch] = useReducer(StudentReducer, initialStudentState)
-    const [first, setfirst] = useState({})
+    const [aaa, setfirst] = useState({})
 
     const getStudentList = async () => {
         const studentList = await getStudentListService()
@@ -31,11 +31,11 @@ const StudentState = (props) => {
     const getStudent = async (rut) => {
         const student = await getStudentService(rut)
         setfirst(await getStudentService(rut))
-        console.log(first);
         dispatch({
             type: 'GET_STUDENT',
-            payload: state.students.find((s) => s.rut === rut)
+            payload: student
         })
+        navigate(`/Student/${student.studentsExist.rut}`)
     }
 
     const addStudent = async (data, token) => {
