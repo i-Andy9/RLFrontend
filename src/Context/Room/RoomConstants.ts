@@ -1,0 +1,5 @@
+export const GET_ROOMSLIST = 'GET_ROOMSLIST'
+export const CLEAN_ROOMITEM = 'CLEAN_ROOMITEM'
+export const GET_ROOMITEM = 'GET_ROOMITEM'
+export const ADD_ROOMITEM = 'ADD_ROOMITEM'
+export const EDIT_ROOMITEM = 'EDIT_ROOMITEM'

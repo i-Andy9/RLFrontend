@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
 
-const AdminContext = createContext
+const AdminContext = createContext()
 
 export default AdminContext;

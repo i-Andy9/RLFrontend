@@ -14,7 +14,7 @@ export const getRoomService = async (code:string) => {
         const url = `http://localhost:4000/rather/rooms/${code}`
         const resp = await fetch(url)
         const data = await resp.json()
-        const roomData = await data.roomExist
+        const roomData = await data
         return roomData
     } catch (error) {
         throw new Error(error.message)
@@ -51,7 +51,7 @@ export const addRoomService = async (body:{},token:string) =>{
         body: JSON.stringify(body)
     })
     const data = await resp.json()
-    console.log(data);
+    return data
     } catch (error) {
         throw new Error(error.message)
     }
@@ -69,8 +69,8 @@ export const editRoomService = async (body:{},code: string,token:string) =>{
         method: 'PUT',
         body: JSON.stringify(body)
     })
-    const data = await resp.json()
-    console.log(data);
+    const data = await resp.json() 
+    return data
     } catch (error) {
         throw new Error(error.message)
     }

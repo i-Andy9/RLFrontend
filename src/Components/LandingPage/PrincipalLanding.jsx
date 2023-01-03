@@ -4,15 +4,18 @@ import RoomsList from "../Rooms/RoomsList";
 
 
 import RoomState from "../../Context/Room/RoomState";
+import AdminContext from "../../Context/Admin/AdminContext";
+import SideAdminMenu from "../Common/SideAdminMenu";
 
-const PrincipalLanding = ({ sesion }) => { 
+const PrincipalLanding = ( ) => { 
+  const { sesionActivity } = useContext(AdminContext);
   return (
     <>
       <div
-        className="" 
-      >
+        className="flex" 
+      >  <SideAdminMenu/>
         <RoomState>
-          <RoomsList sesion={sesion} />
+          <RoomsList   />
         </RoomState>
       </div>
       <Outlet />

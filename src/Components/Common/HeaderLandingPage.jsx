@@ -1,8 +1,14 @@
-import React, { useEffect, useState, Component } from "react";
-import { Link, Outlet, useSearchParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Outlet} from "react-router-dom";
+import AdminContext from "../../Context/Admin/AdminContext";
 
-const HeaderLandingPage = ({validateSesion,sesion}) => {
-   
+const HeaderLandingPage = ( ) => {
+  const {  sesionActivity,SignOutAdmin } = useContext(AdminContext);  
+  
+  const cerrarSesion=()=>{
+    SignOutAdmin()
+  }
+ 
   return (
     <>
       <div>
@@ -13,21 +19,36 @@ const HeaderLandingPage = ({validateSesion,sesion}) => {
                 Rather School
               </span>
             </Link>
-            {!validateSesion ? (
-              <div className="" role="search">
-                <Link
-                  to="/Login"
-                  className="btn btn-outline-light" 
-                  type="submit"
-                >
-                  Iniciar sesion
-                </Link>
-              </div>
-            ) : (
-              <></>
-            )}
+            { 
+              !sesionActivity ? (
+                <div className="" role="search">
+                  <Link
+                    to="/Login"
+                    className="btn btn-outline-light"
+                    type="submit"
+                  >
+                    Iniciar sesion
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="" role="search">
+                    <Link
+                      to="/"
+                      className="btn btn-outline-light"
+                      type="submit"
+                      onClick={ cerrarSesion}
+                    >
+                      Cerrar Sesion
+                    </Link>
+                  </div>
+                </>
+              ) }
           </div>
         </nav>
+      </div>
+      <div className="">
+      
       </div>
       <Outlet />
     </>
