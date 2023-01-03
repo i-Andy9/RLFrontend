@@ -2,15 +2,19 @@ import React from 'react'
 import StudentContext from './StudentContext'
 import { useReducer } from 'react'
 import StudentReducer from './StudentReducer'
-import { getStudentListService, getStudentService } from '../../../API/studentServices'
+import { addStudentService, deleteStudentService, getStudentListService, getStudentService } from '../../../API/studentServices'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { successAlert } from '../../Alerts/Alerts'
+import { useNavigate } from 'react-router-dom'
 
 const StudentState = (props) => {
 
+    const navigate = useNavigate()
     const initialStudentState = {
         students: [],
-        selectedStudent: undefined,
+        selectedStudent: null,
+        data: {}
     }
 
     const [state, dispatch] = useReducer(StudentReducer, initialStudentState)
@@ -30,18 +34,37 @@ const StudentState = (props) => {
         console.log(first);
         dispatch({
             type: 'GET_STUDENT',
-            payload: student
+            payload: state.students.find((s) => s.rut === rut)
         })
     }
 
+    const addStudent = async (data, token) => {
+        const addStudent = await addStudentService(data, token)
+        dispatch({
+            type: 'ADD_STUDENTS',
+            payload: addStudent
+        })
+        navigate('/Students')
+    }
 
+    const deleteStudent = async (code, token) => {
+        const deleteStudent = await deleteStudentService(code, token)
+
+        successAlert('Se ha borrado correctamente el registro')
+        getStudentList()
+    };
+
+    const editStudent = async (rut) => { }
     return (
         <StudentContext.Provider
             value={{
                 students: state.students,
                 selectedStudent: state.selectedStudent,
+                data: state.data,
                 getStudentList,
                 getStudent,
+                addStudent,
+                deleteStudent,
             }}
         >
             {props.children}

@@ -53,30 +53,7 @@ export const addStudentService = async (body: {}, token: string) => {
       body: JSON.stringify(body),
     });
     const data = await resp.json();
-    console.log(data);
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-export const editServiceEmployee = async (
-  body: {},
-  rut: string,
-  token: string
-) => {
-  try {
-    const url = `http://localhost:4000/rather/students/${rut}`;
-    const resp = await fetch(url, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        authorization: `Bearer ${token}`,
-      },
-      method: "PUT",
-      body: JSON.stringify(body),
-    });
-    const data = await resp.json();
-    console.log(data);
+    return data;
   } catch (error) {
     throw new Error(error.message);
   }

@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import RoomContext from "./RoomContext.jsx";
-import { addRoomService, deleteRoomService, getRoomListService, getRoomService } from "../../../API/roomServices";
+import { addRoomService, deleteRoomService, editRoomService, getRoomListService, getRoomService } from "../../../API/roomServices";
 import RoomReducer from "./RoomReducer.jsx";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -33,10 +33,7 @@ const RoomState = (props) => {
       type: 'GET_ROOMITEM',
       payload: roomItem,
     })
-    let route = `/Room/${code}`
-    setTimeout(() => {
-      navigate(route)
-    }, 5000);
+    navigate(`/Room/${code}`)
   };
   const cleanRoom = () => {
     dispatch({
@@ -56,16 +53,17 @@ const RoomState = (props) => {
     navigate('/')
 
   };
-  const editRoom = async (data, code, token) => {
-    const editemRoom = await addRoomService(data, code, token)
+  const editRoom = async (data, code, token, opcion) => {
+    const editemRoom = await editRoomService(data, code, token)
+    console.log(editemRoom)
     if (editemRoom.code && editemRoom.code === 404) {
       return errorAlert('No se ha encontrado un aula asociado aeste codigo', editemRoom.msg)
     }
     dispatch({
       type: 'ADD_ROOMITEM',
-      payload: edItemRoom,
+      payload: editemRoom,
     })
-    successAlert('Se ha editado correctamente el registro')
+    !opcion ? successAlert('Se ha editado correctamente el registro') : null
     navigate('/')
   };
   const deleteRoom = async (code, token) => {

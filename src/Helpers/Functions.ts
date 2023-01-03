@@ -21,6 +21,7 @@ export const codeRoomValidator = (code: string) => {
 };
 
 export const formatRut = (rut) => {
+  if (rut.length > 12) return rut.substring(0, 12);
   // XX.XXX.XXX-X
   const newRut = rut
     .toString()

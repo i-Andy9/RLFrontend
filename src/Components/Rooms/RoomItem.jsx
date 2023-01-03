@@ -12,10 +12,10 @@ const RoomItem = () => {
   const get = () => {
     console.log("codeeee", selectedRoom.code)
   }
-  console.log("codeeee", selectedRoom.code)
   useEffect(() => {
+
     console.log(selectedRoom);
-  }, [selectedRoom])
+  }, [])
   return (
     <>
       <div className="flex">

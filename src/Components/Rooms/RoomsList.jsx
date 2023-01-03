@@ -27,8 +27,7 @@ const RoomsList = ({ sesion }) => {
           <Row>
             <Col className="col-sm-12 col-md-11 col-xs-6 ">
               <h2 className="text-center">
-
-                RoomsList
+                Lista de Aulas
               </h2>
               <table className="mt-5 drop-shadow-md md:drop-shadow-xl fluid table table-fixed text-sm w-full text-center mx-2 rounded-md bg-gray-800  text-white">
                 <thead>

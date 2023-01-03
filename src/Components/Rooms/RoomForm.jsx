@@ -15,7 +15,7 @@ const RoomForm = () => {
     code: "",
     name: "",
     details: "",
-    list: '',
+    list: '[]',
   });
 
   const handleUpdateForm = (e) => {
@@ -50,7 +50,7 @@ const RoomForm = () => {
     <>
       <div className="flex  ">
         <SideAdminMenu />
-        <div className=" col col-md-8 col-sm-6 col-xs-2 flex justify-center h-100  ">
+        <div className=" col col-md-8 col-sm-6 col-xs-2 flex justify-center  h-full ">
           <Card className="p-4 mt-3 bg-gray-800 w-50 text-white">
             <h1 className="text-center text-xl">Fomulario Registro Aula</h1>
 
